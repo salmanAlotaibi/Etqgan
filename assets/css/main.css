@@ -50,9 +50,9 @@ s
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
 body {
-  color: var(--default-color);
-  background-color: var(--background-color);
+  background-size: cover;
   font-family: var(--default-font);
+  position: relative;
 }
 
 a {
@@ -145,9 +145,8 @@ h6 {
   --default-color: #ffffff;
   --heading-color: #ffffff;
   color: var(--default-color);
-  background-color: var(--background-color);
   padding: 20px 0;
-  transition: all 0.5s;
+  transition: all 0.1s;
   z-index: 997;
 }
 
@@ -482,143 +481,6 @@ button:active {
   position: relative;
 }
 
-.footer .footer-top {
-  padding-top: 50px;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.footer .footer-about .logo {
-  line-height: 1;
-  margin-bottom: 25px;
-}
-
-.footer .footer-about .logo img {
-  max-height: 40px;
-  margin-right: 6px;
-}
-
-.footer .footer-about .logo span {
-  font-size: 26px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-family: var(--heading-font);
-  color: var(--heading-color);
-}
-
-.footer .footer-about p {
-  font-size: 14px;
-  font-family: var(--heading-font);
-}
-
-.footer .social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 50%);
-  font-size: 16px;
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin-right: 10px;
-  transition: 0.3s;
-}
-
-.footer .social-links a:hover {
-  color: var(--accent-color);
-  border-color: var(--accent-color);
-}
-
-.footer h4 {
-  font-size: 16px;
-  font-weight: bold;
-  position: relative;
-  padding-bottom: 12px;
-}
-
-.footer .footer-links {
-  margin-bottom: 30px;
-}
-
-.footer .footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.footer .footer-links ul i {
-  padding-right: 2px;
-  font-size: 12px;
-  line-height: 0;
-}
-
-.footer .footer-links ul li {
-  padding: 10px 0;
-  display: flex;
-  align-items: center;
-}
-
-.footer .footer-links ul li:first-child {
-  padding-top: 0;
-}
-
-.footer .footer-links ul a {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  display: inline-block;
-  line-height: 1;
-}
-
-.footer .footer-links ul a:hover {
-  color: var(--accent-color);
-}
-
-.footer .footer-contact p {
-  margin-bottom: 5px;
-}
-
-.footer .footer-newsletter .newsletter-form {
-  margin-top: 30px;
-  margin-bottom: 15px;
-  padding: 6px 8px;
-  position: relative;
-  border-radius: 4px;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 80%);
-  display: flex;
-  background-color: var(--background-color);
-  transition: 0.3s;
-}
-
-.footer .footer-newsletter .newsletter-form:focus-within {
-  border-color: var(--accent-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email] {
-  border: 0;
-  padding: 4px;
-  width: 100%;
-  background-color: var(--background-color);
-  color: var(--default-color);
-}
-
-.footer .footer-newsletter .newsletter-form input[type=email]:focus-visible {
-  outline: none;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit] {
-  border: 0;
-  font-size: 16px;
-  padding: 0 20px;
-  margin: -7px -8px -7px 0;
-  background: var(--accent-color);
-  color: var(--contrast-color);
-  transition: 0.3s;
-  border-radius: 0 4px 4px 0;
-}
-
-.footer .footer-newsletter .newsletter-form input[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 20%);
-}
-
 .footer .copyright {
   padding: 25px 0;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
@@ -745,7 +607,6 @@ h1 {
 --------------------------------------------------------------*/
 .page-title {
   color: var(--default-color);
-  background-color: var(--background-color);
   position: relative;
 }
 
@@ -778,7 +639,7 @@ h1 {
 }
 
 .page-title nav ol li+li::before {
-  content: "/";
+  content: "";
   display: inline-block;
   padding-right: 10px;
   color: color-mix(in srgb, var(--default-color), transparent 70%);
@@ -790,8 +651,9 @@ h1 {
 section,
 .section {
   color: var(--default-color);
-  background-color: var(--background-color);
-  padding: 60px 0;
+  position: relative;
+  top: -580px;
+  margin-bottom: 200px;
   scroll-margin-top: 100px;
   overflow: clip;
 }
@@ -810,7 +672,7 @@ section,
 --------------------------------------------------------------*/
 .section-title {
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 150px;
   position: relative;
 }
 
@@ -820,12 +682,14 @@ section,
   font-weight: 700;
   padding: 8px 20px;
   margin: 0;
+  top: 100px;
   background: color-mix(in srgb, var(--accent-color), transparent 90%);
   color: var(--accent-color);
   display: inline-block;
   text-transform: uppercase;
   border-radius: 50px;
   font-family: var(--default-font);
+  margin-bottom: auto;
 }
 
 .section-title div {
@@ -834,6 +698,7 @@ section,
   font-size: 32px;
   font-weight: 700;
   font-family: var(--heading-font);
+  margin-bottom: auto;
 }
 
 .section-title div .description-title {
@@ -849,18 +714,12 @@ section,
   position:static;
 }
 
-.hero .hero-bg {
-  position: absolute;
-  inset: 0;
-  display: block;
-  width: 100%;
-  object-fit:cover;
-  z-index: 2;
-}
+
+
 
 .hero-img{
 position: relative;
-top: -600px;
+top: -530px;
 right: 300px;
 width: 100%;       
 height: 100%;
@@ -1318,6 +1177,8 @@ align-items: left;
 .faq .content h3 {
   font-weight: 400;
   font-size: 34px;
+  margin-bottom: 80px;
+  position: relative;
 }
 
 .faq .content p {
@@ -1325,7 +1186,8 @@ align-items: left;
 }
 
 .faq .faq-container {
-  margin-top: 15px;
+  margin-bottom: 300px;
+
 }
 
 .faq .faq-container .faq-item {
@@ -1345,7 +1207,7 @@ align-items: left;
   font-weight: 600;
   font-size: 17px;
   line-height: 24px;
-  margin: 0 30px 0 32px;
+  margin: 0 10px 0 32px;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -1370,7 +1232,7 @@ align-items: left;
 .faq .faq-container .faq-item .faq-content p {
   margin-bottom: 0;
   overflow: hidden;
-  margin-right: -10px;
+  margin-left: -10px;
 }
 
 .faq .faq-container .faq-item .faq-icon {

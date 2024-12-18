@@ -16,6 +16,44 @@
   document.addEventListener('scroll', toggleScrolled);
   window.addEventListener('load', toggleScrolled);
 
+
+
+ /**
+   * Init typed.js
+   */
+// النص المتحرك مع السطور الجديدة
+let notificationText = document.getElementById('notification-text');
+let notificationContent = [
+  "إتقان يُبقيك على اطلاع دائم.",
+  "بفضل نظام الإشعارات الفوري،",
+  "يمكنك مراقبة الخدمات المشتركة",
+  "بدقة وتلقي تنبيهات عند أي انحراف",
+  "لضمان تحقيق أهدافك بفعالية."
+];
+let textIndex = 0;
+let charIndex = 0;
+
+function typeNotificationText() {
+  if (textIndex < notificationContent.length) {
+    // إذا لم يتم كتابة الجملة بعد، نضيف الحروف واحدة تلو الأخرى
+    if (charIndex < notificationContent[textIndex].length) {
+      notificationText.innerHTML += notificationContent[textIndex][charIndex];
+      charIndex++;
+      setTimeout(typeNotificationText, 100); // التأخير بين الحروف
+    } else {
+      // بعد اكتمال الجملة، نضيف سطر جديد
+      notificationText.innerHTML += "<br>";
+      textIndex++;
+      charIndex = 0;
+      setTimeout(typeNotificationText, 500); // التأخير بين الجمل
+    }
+  }
+}
+
+// بدء الكتابة المتحركة
+typeNotificationText();
+
+
   /**
    * Mobile nav toggle
    */
@@ -62,27 +100,8 @@
     });
   }
 
-  /**
-   * Scroll top button
-   */
-  let scrollTop = document.querySelector('.scroll-top');
 
-  function toggleScrollTop() {
-    if (scrollTop) {
-      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
-    }
-  }
-  scrollTop.addEventListener('click', (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  });
-
-  window.addEventListener('load', toggleScrollTop);
-  document.addEventListener('scroll', toggleScrollTop);
-
+  
   /**
    * Animation on scroll function and init
    */

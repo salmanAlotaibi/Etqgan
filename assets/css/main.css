@@ -3,7 +3,7 @@
 :root {
   --default-font: "Almarai",  system-ui, -apple-system, "Almarai", Roboto, "Almarai", Arial, "Almarai", "Almarai", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Almarai",  sans-serif;
-  --nav-font: "Almarai",  sans-serif;
+  --nav-font: "Almarai";
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -19,11 +19,13 @@
 /* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
 :root {
   --nav-color: #1E4691;  /* The default color of the main navmenu links */
-  --nav-hover-color: #F78F3A; /* Applied to main navmenu links when they are hovered over or active */
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+  --nav-dropdown-background-color: #0a0101; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #f4efef; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #090203; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-background-color: #ffffff;
+  --nav-link-color: #1E4691;
+  --nav-hover-color: #d26710;
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -44,15 +46,20 @@ s
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
+  
 }
 
 /*--------------------------------------------------------------
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
-body {
-  background-size: cover;
+body { 
+  background-image: url('/assets/img/BG.png'); /* رابط الصورة */
+  background-size: cover; /* تغطية كاملة */
+  background-repeat: no-repeat; /* عدم التكرار */
+  background-attachment: fixed; /* تثبيت الخلفية */
+  background-position: center; /* توسيط الصورة */
   font-family: var(--default-font);
-  position: relative;
+
 }
 
 a {
@@ -62,7 +69,7 @@ a {
 }
 
 a:hover {
-  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  color: color-mix(in srgb, var(--accent-color), transparent 20%);
   text-decoration: none;
 }
 
@@ -74,14 +81,14 @@ h5,
 h6 {
   color: var(--heading-color);
   font-family: var(--heading-font);
-  text-align: right;
-  margin-bottom: -400px;
-  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1px;
+  font-weight: 300;
   line-height: 1.2;
+  margin: 100px;
   margin: 0;
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
+  font-size: 30px;
+  font-weight: 600;
   
 }
 
@@ -91,10 +98,10 @@ h6 {
   display: none;
   background: #df1529;
   color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
+  text-align: right;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 6;
 }
 
 .php-email-form .sent-message {
@@ -102,27 +109,27 @@ h6 {
   color: #ffffff;
   background: #059652;
   text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-weight: 10;
 }
 
 .php-email-form .loading {
   display: none;
   background: var(--surface-color);
   text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
+  padding: 1rem;
+  margin-bottom: 2rem;
 }
 
 .php-email-form .loading:before {
   content: "";
   display: inline-block;
   border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
+  width: 2rem;
+  height: 2rem;
+  margin: 0 10rem -6rem 0;
+  border: 3rem solid var(--accent-color);
   border-top-color: var(--surface-color);
   animation: php-email-form-loading 1s linear infinite;
 }
@@ -141,45 +148,11 @@ h6 {
 # Global Header
 --------------------------------------------------------------*/
 .header {
-  --background-color: rgba(255, 255, 255, 0);
-  --default-color: #ffffff;
-  --heading-color: #ffffff;
-  color: var(--default-color);
-  padding: 20px 0;
-  transition: all 0.1s;
+  padding: 1px 2px 4px 1px;
+  transition: all 0.5s;
   z-index: 997;
-}
-
-
-button {
-  cursor: pointer;
-  font-weight: 700;
-  transition: all 0.2s;
-  padding: 10px 20px;
-  border-radius: 100px;
-  background: #cfef00;
-  border: 1px solid transparent;
-  display: flex;
-  align-items: center;
-  font-size: 15px;
-}
-
-button:hover {
-  background: #c4e201;
-}
-
-button > svg {
-  width: 34px;
-  margin-left: 10px;
-  transition: transform 0.3s ease-in-out;
-}
-
-button:hover svg {
-  transform: translateX(5px);
-}
-
-button:active {
-  transform: scale(0.95);
+  position:relative;
+ 
 }
 
 
@@ -189,19 +162,19 @@ button:active {
 }
 
 .header .logo img {
-  max-height: 32px;
-  margin-right: 8px;
+  max-height: 0.1rem;
+  margin-right: 1ch;
 }
 
 .header .logo h1 {
-  font-size: 30px;
+  font-size: 2rem;
   margin: 0;
   font-weight: 700;
   color: var(--heading-color);
 }
 
 .scrolled .header {
-  box-shadow: 0px 0 18px rgba(0, 0, 0, 0.1);
+  box-shadow: 0rem 0 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Global Header on Scroll
@@ -213,286 +186,100 @@ button:active {
 /*--------------------------------------------------------------
 # Navigation Menu
 --------------------------------------------------------------*/
-/* Desktop Navigation */
-@media (min-width: 1200px) {
-  .navmenu {
-    padding: 0;
-  }
-
-  .navmenu ul {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    list-style: none;
-    align-items: center;
-  }
-
-  .navmenu li {
-    position: relative;
-  }
-
-  .navmenu>ul>li {
-    white-space: nowrap;
-    padding: 15px 14px;
-  }
-
-  .navmenu>ul>li:last-child {
-    padding-right: 0;
-  }
-
-  .navmenu a,
-  .navmenu a:focus {
-    color: color-mix(in srgb, var(--nav-color), transparent 20%);
-    font-size: 15px;
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-weight: 400;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-    position: relative;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    transition: 0.3s;
-  }
-
-  .navmenu>ul>li>a:before {
-    content: "";
-    position: absolute;
-    height: 3px;
-    bottom: -6px;
-    right: 30px;
-    background-color: var(--nav-hover-color);
-    visibility: hidden;
-    width: 5px;
-    transition: all 0.3s ease-in-out 0s;
-  }
-
-  .navmenu a:hover:before,
-  .navmenu li:hover>a:before,
-  .navmenu .active:before {
-    visibility: visible;
-    width: 25px;
-  }
-
-  .navmenu li:hover>a,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-color);
-  }
-
-  .navmenu .dropdown ul {
-    margin: 0;
-    padding: 10px 0;
-    background: var(--nav-dropdown-background-color);
-    display: block;
-    position: absolute;
-    visibility: hidden;
-    left: 14px;
-    top: 130%;
-    opacity: 0;
-    transition: 0.3s;
-    border-radius: 4px;
-    z-index: 99;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-  }
-
-  .navmenu .dropdown ul li {
-    min-width: 200px;
-  }
-
-  .navmenu .dropdown ul a {
-    padding: 10px 20px;
-    font-size: 15px;
-    text-transform: none;
-    color: var(--nav-dropdown-color);
-  }
-
-  .navmenu .dropdown ul a i {
-    font-size: 12px;
-  }
-
-  .navmenu .dropdown ul a:hover,
-  .navmenu .dropdown ul .active:hover,
-  .navmenu .dropdown ul li:hover>a {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .dropdown:hover>ul {
-    opacity: 1;
-    top: 100%;
-    visibility: visible;
-  }
-
-  .navmenu .dropdown .dropdown ul {
-    top: 0;
-    left: -90%;
-    visibility: hidden;
-  }
-
-  .navmenu .dropdown .dropdown:hover>ul {
-    opacity: 1;
-    top: 0;
-    left: -100%;
-    visibility: visible;
-  }
+/* القائمة بشكل عام */
+.navmenu {
+  position: fixed; /* تثبيت القائمة */
+  top: 0;
+  right: 700px;
+  width: 100%;
+  padding: 10px 20px;
+  background:fixed; /* الخلفية تكون شفافة في البداية */
+  transition: background-color 0.3s ease, box-shadow 0.2s ease; /* تأثير الانتقال للخلفية */
+  z-index: 1000;
 }
 
-/* Mobile Navigation */
-@media (max-width: 1199px) {
-  .mobile-nav-toggle {
-    color: var(--nav-color);
-    font-size: 28px;
-    line-height: 0;
-    margin-right: 10px;
-    cursor: pointer;
-    transition: color 0.3s;
-  }
 
-  .navmenu {
-    padding: 0;
-    z-index: 9997;
-  }
 
+.navmenu ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navmenu li {
+  margin: 0 1rem;
+}
+
+.navmenu a {
+  text-decoration: none;
+  color: var(--nav-link-color);
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 20px;
+  transition: color 0.3s ease;
+}
+
+.navmenu a:hover,
+.navmenu .active {
+  color: var(--nav-hover-color);
+}
+
+/* زر القائمة للجوال */
+.mobile-nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* للجوال */
+@media (max-width: 768px) {
   .navmenu ul {
     display: none;
-    list-style: none;
-    position: absolute;
-    inset: 60px 20px 20px 20px;
-    padding: 10px 0;
-    margin: 0;
-    border-radius: 6px;
-    background-color: var(--nav-mobile-background-color);
-    border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-    box-shadow: none;
-    overflow-y: auto;
-    transition: 0.3s;
-    z-index: 9998;
-  }
-
-  .navmenu a,
-  .navmenu a:focus {
-    color: var(--nav-dropdown-color);
-    padding: 10px 20px;
-    font-family: var(--nav-font);
-    font-size: 17px;
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    white-space: nowrap;
-    transition: 0.3s;
-  }
-
-  .navmenu a i,
-  .navmenu a:focus i {
-    font-size: 12px;
-    line-height: 0;
-    margin-left: 5px;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    transition: 0.3s;
-    background-color: color-mix(in srgb, var(--accent-color), transparent 90%);
-  }
-
-  .navmenu a i:hover,
-  .navmenu a:focus i:hover {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-  }
-
-  .navmenu a:hover,
-  .navmenu .active,
-  .navmenu .active:focus {
-    color: var(--nav-dropdown-hover-color);
-  }
-
-  .navmenu .active i,
-  .navmenu .active:focus i {
-    background-color: var(--accent-color);
-    color: var(--contrast-color);
-    transform: rotate(180deg);
-  }
-
-  .navmenu .dropdown ul {
-    position: static;
-    display: none;
-    z-index: 99;
-    padding: 10px 0;
-    margin: 10px 20px;
-    background-color: var(--nav-dropdown-background-color);
-    transition: all 0.5s ease-in-out;
-  }
-
-  .navmenu .dropdown ul ul {
-    background-color: rgba(255, 255, 255, 0.1);
-  }
-
-  .navmenu .dropdown>.dropdown-active {
-    display: block;
-    background-color: rgba(33, 37, 41, 0.03);
-  }
-
-  .mobile-nav-active {
-    overflow: hidden;
-  }
-
-  .mobile-nav-active .mobile-nav-toggle {
-    color: #fff;
-    position: absolute;
-    font-size: 32px;
-    top: 15px;
-    right: 15px;
-    margin-right: 0;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    background: var(--nav-background-color);
+    padding-top: 3rem;
+    box-shadow: -4px 0 15px rgba(0, 0, 0, 0.1);
     z-index: 9999;
   }
 
-  .mobile-nav-active .navmenu {
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    background: rgba(33, 37, 41, 0.8);
-    transition: 0.3s;
+  .navmenu ul.active {
+    display: flex;
   }
 
-  .mobile-nav-active .navmenu>ul {
+  .mobile-nav-toggle {
     display: block;
   }
+
+  .navmenu li {
+    margin: 1.5rem 0;
+    text-align: center;
+  }
 }
+
 
 /*--------------------------------------------------------------
 # Global Footer
 --------------------------------------------------------------*/
-.footer {
-  color: var(--default-color);
-  background-color: var(--background-color);
-  font-size: 14px;
-  position: relative;
-}
-
 .footer .copyright {
   padding: 25px 0;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
-
 .footer .copyright p {
   margin-bottom: 0;
 }
 
 .footer .credits {
   margin-top: 6px;
-  font-size: 13px;
+  font-size: 15px;
+  color:var(--default-color);
 }
 
 /*--------------------------------------------------------------
@@ -510,13 +297,13 @@ button:active {
 #preloader:before {
   content: "";
   position: fixed;
-  top: calc(50% - 30px);
-  left: calc(50% - 30px);
-  border: 6px solid #ffffff;
+  top: calc(50% - 3rem);
+  left: calc(50% - 3rem);
+  border: 1rem solid #ffffff;
   border-color: var(--accent-color) transparent var(--accent-color) transparent;
   border-radius: 50%;
-  width: 60px;
-  height: 60px;
+  width: 1rem;
+  height: 2rem;
   animation: animate-preloader 1.5s linear infinite;
 }
 
@@ -530,55 +317,25 @@ button:active {
   }
 }
 
-
-
-/*--------------------------------------------------------------
-# PDF  Display
---------------------------------------------------------------*/
-
-.pdf {
-  width: 80%;
-  aspect-ratio: 10 / 5;
-  
-}
-
-.pdf,
-html,
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  border-radius: 30px;
-}
-h1,
-h3 {
-  text-align: center;
-}
-
-h1 {
-  color: green;
-}
-
-
 /*--------------------------------------------------------------
 # Scroll Top Button
 --------------------------------------------------------------*/
+/* تنسيق زر العودة إلى الأعلى */
 .scroll-top {
+  display: none; /* مخفي بشكل افتراضي */
   position: fixed;
-  visibility: hidden;
-  opacity: 0;
-  right: 15px;
-  bottom: 15px;
-  z-index: 99999;
-  background-color: var(--accent-color);
-  width: 40px;
-  height: 40px;
-  border-radius: 4px;
-  transition: all 0.4s;
+  bottom: 30px;
+  right: 50px;
+  background-color: #022f5f;
+  color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
 }
 
 .scroll-top i {
-  font-size: 24px;
+  font-size: 2.4rem;
   color: var(--contrast-color);
   line-height: 0;
 }
@@ -588,9 +345,9 @@ h1 {
   color: var(--contrast-color);
 }
 
+/* عند التمرير لأسفل، يظهر الزر */
 .scroll-top.active {
-  visibility: visible;
-  opacity: 1;
+  display: block; /* إظهار الزر عند الوصول للأسفل */
 }
 
 /*--------------------------------------------------------------
@@ -607,11 +364,12 @@ h1 {
 --------------------------------------------------------------*/
 .page-title {
   color: var(--default-color);
+  background-color: var(--background-color);
   position: relative;
 }
 
 .page-title .heading {
-  padding: 160px 0 80px 0;
+  padding: 80px 0;
   border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
 }
 
@@ -621,7 +379,7 @@ h1 {
 }
 
 .page-title nav {
-  background-color: color-mix(in srgb, var(--default-color), transparent 88%);
+  background-color: color-mix(in srgb, var(--default-color), transparent 95%);
   padding: 20px 0;
 }
 
@@ -639,7 +397,7 @@ h1 {
 }
 
 .page-title nav ol li+li::before {
-  content: "";
+  content: "/";
   display: inline-block;
   padding-right: 10px;
   color: color-mix(in srgb, var(--default-color), transparent 70%);
@@ -651,19 +409,16 @@ h1 {
 section,
 .section {
   color: var(--default-color);
-  position: relative;
-  top: -580px;
-  margin-bottom: 200px;
-  scroll-margin-top: 100px;
-  overflow: clip;
+  padding: 80px 80px;
+  scroll-margin-top: 50px;
+  overflow:clip;
 }
-
 
 @media (max-width: 1199px) {
 
   section,
   .section {
-    scroll-margin-top: 66px;
+    scroll-margin-top: 6px;
   }
 }
 
@@ -671,133 +426,157 @@ section,
 # Global Section Titles
 --------------------------------------------------------------*/
 .section-title {
-  text-align: center;
-  padding-bottom: 150px;
-  position: relative;
+  text-align: center; /* يوسّط النص داخل الحاوية */
+  padding-bottom: 60px; /* إضافة مساحة سفلية */
+  position: relative; /* لتحديد موضع المحتوى بسهولة عند الحاجة */
+  margin: 0 auto; /* يوسّط العنصر نفسه داخل الحاوية الرئيسية */
+  max-width: 800px; /* تحديد عرض مناسب للحاوية */
+  display: flex; /* استخدام Flexbox لتوسيط المحتوى */
+  flex-direction: column; /* ترتيب العناصر عموديًا */
+  align-items: center; /* يوسّط العناصر أفقيًا */
+  justify-content: center; /* يوسّط العناصر عموديًا */
 }
 
 .section-title h2 {
-  font-size: 13px;
-  letter-spacing: 1px;
-  font-weight: 700;
-  padding: 8px 20px;
-  margin: 0;
-  top: 100px;
-  background: color-mix(in srgb, var(--accent-color), transparent 90%);
-  color: var(--accent-color);
-  display: inline-block;
-  text-transform: uppercase;
-  border-radius: 50px;
-  font-family: var(--default-font);
-  margin-bottom: auto;
+  font-size: 15px; /* حجم النص صغير */
+  letter-spacing: 1px; /* زيادة المسافة بين الأحرف */
+  font-weight: bolder; /* النص عريض */
+  padding: 8px 20px; /* مساحة داخلية */
+  margin: 10px 0; /* ضبط المسافة العلوية والسفلية */
+  background: color-mix(in srgb, var(--accent-color), transparent 90%); /* لون خلفية مختلط */
+  color: var(--accent-color); /* لون النص */
+  display: inline-block; /* يأخذ النص حجمه الطبيعي */
+  text-transform: uppercase; /* النص بأحرف كبيرة */
+  border-radius: 50px; /* الزوايا دائرية */
+  font-family: var(--default-font); /* نوع الخط */
 }
 
 .section-title div {
-  color: var(--heading-color);
-  margin: 10px 0 0 0;
-  font-size: 32px;
-  font-weight: 700;
-  font-family: var(--heading-font);
-  margin-bottom: auto;
+  color: var(--heading-color); /* لون النص */
+  padding: 10px; /* مساحة داخلية */
+  font-size: 32px; /* حجم النص */
+  font-weight: bold; /* النص عريض */
+  font-family: var(--heading-font); /* نوع الخط */
+  margin-top: 20px; /* مسافة علوية من العنصر السابق */
 }
 
 .section-title div .description-title {
-  color: var(--accent-color);
+  color: var(--accent-color); /* لون النص مميز */
+  font-size: 20px; /* حجم النص الخاص بالوصف */
+  margin-top: 10px; /* مسافة علوية صغيرة */
 }
+
 
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
-.hero {
-  width: 100%;
-  height: 70%;
-  position:static;
-}
 
-
-
-
-.hero-img{
-position: relative;
-top: -530px;
-right: 300px;
-width: 100%;       
-height: 100%;
-align-items: left;
-
-
-
-}
-
-.hero:before {
-  content: "";
-  position: absolute;
-  display: block;
-  inset: 0;
-  z-index: 3;
-}
-
-.hero .container {
-  position: relative;
-  z-index: 3;
-}
-
-.hero h5 {
-  margin: 300px 0 20px 0;
-  font-size: 20px;
-  font-weight: 150px;
-  line-height: 56px;
-  color: #1E4691
- 
-}
-
-.hero h1 span {
-  color: var(--heading-color);
-  border-bottom: 4px solid var(--accent-color);
-}
-
-.hero p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
-  margin: 5px 0 30px 0;
-  font-size: 22px;
-  font-weight: 400px;
-  text-align: right;
-}
-
-.hero .btn-get-started {
-  color: var(--contrast-color);
-  background: var(--accent-color);
-  font-family: var(--heading-font);
-  font-weight: 400;
+/* زر تسجيل الدخول */
+.btn-login {
+  display: inline-block; /* ضمان التعامل مع العنصر كزر */
+  text-decoration: none; /* إزالة التسطير */
+  background: linear-gradient(to right, #02356c, #ff7300); /* تدرج أزرق، برتقالي، رمادي */
+  color: white; /* لون النص */
+  border: none; /* إزالة الحواف الافتراضية */
+  border-radius: 10px; /* حواف مستديرة */
+  padding: 10px 20px; /* مسافة داخلية */
   font-size: 15px;
-  letter-spacing: 1px;
-  display: inline-block;
-  padding: 10px 28px 12px 28px;
-  border-radius: 50px;
-  transition: 0.5s;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  font-weight: bold;
+  cursor: pointer; /* مؤشر عند التمرير */
+  transition: all 0.4s ease; /* تأثير السلاسة */
+  text-align: center; /* محاذاة النص في المنتصف */
+  width: 200px; /* عرض الزر */
+  z-index: 10; /* ضمان الظهور فوق العناصر الأخرى */
+  margin: 10px 200px
 }
+
+.btn-login:hover {
+  background: linear-gradient(to right, #ff7300, #ffffff); /* تغيير التدرج عند التمرير */
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-login:focus {
+  outline: none;
+  box-shadow: 0 0 10px rgba(255, 115, 0, 0.7);
+}
+
+.btn-login:active {
+  transform: scale(0.95); /* تصغير الزر قليلاً */
+  box-shadow: 0 2px 4px f0f0f0(0, 0, 0, 0.2); /* تقليل الظل */
+}
+
+.btn-login.active {
+  background: white; /* اللون الأبيض عند التفعيل */
+  color: white; /* لون النص عند التفعيل */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* تأثير الظل */
+  border: 2px solid #f0f0f0; /* إضافة حافة */
+}
+
+
+/* الحاوية الرئيسية */
+.container {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* مسافة بين النص والصورة */
+  justify-content: space-around;
+}
+
+/* ضبط النص */
+.text-container {
+  margin: 0;
+  font-size: 18px;
+  text-align: left;
+}
+
+
+
+.img-fluid{
+max-width: 110%;
+margin: -150px -60px -200px 0;
+display: block;
+
+}
+
+.container h6 {
+  color: #022f5f;
+  font-size: 25px;
+  bottom: 10px;
+}
+
+
+@media (max-width: 991px) {
+  .hero .row {
+    flex-direction: column-reverse;
+  }
+  
+  .hero .col-lg-6 {
+    margin-bottom: 30px;
+  }
+}
+
+
 
 .hero .btn-get-started:hover {
   color: var(--contrast-color);
   background: color-mix(in srgb, var(--accent-color), transparent 15%);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8rem 2.8rem rgba(0, 0, 0, 0.1);
 }
 
 .hero .btn-watch-video {
-  font-size: 16px;
+  font-size: 1.6rem;
   transition: 0.5s;
-  margin-left: 25px;
+  margin-left: 2.5rem;
   color: var(--default-color);
   font-weight: 600;
 }
 
 .hero .btn-watch-video i {
   color: var(--accent-color);
-  font-size: 32px;
+  font-size: 3.2rem;
   transition: 0.3s;
   line-height: 0;
-  margin-right: 8px;
+  margin-right: 8rem;
 }
 
 .hero .btn-watch-video:hover {
@@ -814,32 +593,33 @@ align-items: left;
 
 @media (max-width: 640px) {
   .hero h1 {
-    font-size: 28px;
-    line-height: 36px;
+    font-size: 2rem;
+    line-height: 3rem;
   }
 
   .hero p {
-    font-size: 18px;
-    line-height: 24px;
-    margin-bottom: 30px;
+    font-size: 1.8rem;
+    line-height: 2.4rem;
+    margin-bottom: 3rem;
   }
 
+  
   .hero .btn-get-started,
   .hero .btn-watch-video {
-    font-size: 13px;
+    font-size: 1.3rem;
   }
 }
 
 .hero .hero-waves {
   display: block;
   overflow: hidden;
-  width: 100%;
-  height: 60px;
+  width: 93.6%;
+  height:60px;
   position: absolute;
-  left: 0;
-  bottom:-78px;
-  right: 0;
-  z-index: 3;
+  left: 1rem;
+  bottom:-.70rem;
+  right: 2.7rem;
+  z-index: 2;
 }
 
 .hero .wave1 use {
@@ -907,33 +687,34 @@ align-items: left;
 --------------------------------------------------------------*/
 .features .feature-box {
   background-color: var(--surface-color);
-  padding: 24px 20px;
-  box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+  padding: 0rem 0.2rem;
+  box-shadow: 0 0 0 rgba(212, 16, 16, 0.1);
   transition: 0.3s;
   height: 100%;
 }
 
 .features .feature-box h3 {
-  font-size: 18px;
+  font-size: 1rem;
   font-weight: 700;
-  margin: 0;
+  margin: 1rem;
 }
 .section p {
-  font-size: 18px;
-  line-height: 24px;
-  margin-right: 200px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  margin-right: 10rem;
+  text-align: center;
 }
 
 .features .feature-box i {
   background: color-mix(in srgb, var(--accent-color), transparent 92%);
   color: var(--accent-color);
   line-height: 0;
-  padding: 4px;
-  margin-right: 10px;
-  font-size: 24px;
-  border-radius: 3px;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  font-size: 1.4rem;
+  border-radius: 10rem;
   transition: 0.3s;
-  border-top-right-radius: 30px;
+  border-top-right-radius: 0.2rem;
 }
 
 .features .feature-box:hover i {
@@ -941,48 +722,78 @@ align-items: left;
   color: var(--contrast-color);
 }
 
+/* تصميم الإطار المتدرج */
+.dual-border {
+  border: 0.3rem solid transparent; /* اجعل الحدود شفافة أولاً */
+  border-image: linear-gradient(to right, #02356c, #ff7300) 1; /* تدرج أزرق وبرتقالي */
+  border-radius: 0.5rem; /* اجعل الحواف مستديرة */
+  padding: 0.4rem; /* أضف مسافة داخل المربع */
+  background-color: var(--surface-color); /* لون الخلفية الداخلي */
+  box-shadow: 0 0.4rem 1.4rem rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  transition: transform 0.4s ease, box-shadow 0.5s ease; /* تأثير الانتقال */
+  align-items: center;
+}
 
+/* تأثير التمرير */
+.dual-border:hover {
+  transform: scale(1.05); /* تكبير بسيط عند التمرير */
+  box-shadow: 0 1rem 1rem rgba(0, 0, 0, 0.2); /* ظل أعمق عند التمرير */
+}
 
+/* أيقونة داخل الإطار */
+.dual-border i {
+  font-size: 0.4rem; /* حجم الأيقونة */
+  color: #ff7300; /* لون الأيقونة */
+  margin-right: 2rem; /* مسافة بين الأيقونة والنص */
+}
+
+/* النص داخل الإطار */
+.dual-border h3 {
+  font-size: 1.8rem; /* حجم النص */
+  font-weight: 20; /* جعل النص غامقًا */
+  margin: 0; /* إزالة الهوامش */
+  color: #333; /* لون النص */
+}
+
+.img-S{
+
+  width: 100%;
+
+}
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
 .features .features-item {
-  background-color: var(--surface-color);
-  display: flex;
-  align-items: center;
   text-align: center;
-  padding: 20px;
-  transition: 0.3s;
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-  position: relative;
-}
-
-.features .features-item i {
-  font-size: 32px;
-  padding-right: 10px;
-  line-height: 0;
-}
-
-.features .features-item h3 {
-  font-weight: 700;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-size: 16px;
-}
-
-.features .features-item h3 a {
-  color: #1E4691
-  transition: 0.3s;
+  padding: 40px;
+  background: linear-gradient(135deg, #007bff, #ff5722); /* تدرج من الأزرق إلى البرتقالي */
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .features .features-item:hover {
-  border-color: var(--accent-color);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.features .features-item:hover h3 a {
-  color: var(--accent-color);
+.features .features-item h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-top: 10px;
+  color: #fff; /* النص داخل المربعات أبيض */
 }
+
+.features .features-item a {
+  color: #fff; /* النص داخل الروابط أبيض */
+  text-decoration: none;
+}
+
+.features .features-item a:hover {
+  text-decoration: underline; /* إضافة تأثير عند التمرير فوق الرابط */
+}
+
 
 /*--------------------------------------------------------------
 # Stats Section
@@ -990,12 +801,12 @@ align-items: left;
 .stats i {
   background-color: var(--surface-color);
   color: var(--accent-color);
-  box-shadow: 0px 2px 25px rgba(0, 0, 0, 0.1);
-  width: 54px;
-  height: 54px;
-  font-size: 24px;
-  border-radius: 50px;
-  border: 2px solid var(--background-color);
+  box-shadow: 0 wrem 2.5rem rgba(0, 0, 0, 0.1);
+  width: 5.4rem;
+  height: 5.4rem;
+  font-size: 2.4rem;
+  border-radius: 2rem;
+  border: 2rem solid var(--background-color);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -1005,18 +816,18 @@ align-items: left;
 
 .stats .stats-item {
   background-color: var(--surface-color);
-  margin-top: -27px;
-  padding: 30px 30px 25px 30px;
+  margin-top: -27rem;
+  padding: 3rem 3rem 2.5rem 3rem;
   width: 100%;
   position: relative;
   text-align: center;
-  box-shadow: 0px 2px 35px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  box-shadow: 0 2rem 3.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 4rem;
   z-index: 0;
 }
 
 .stats .stats-item span {
-  font-size: 36px;
+  font-size: 3.6rem;
   display: block;
   font-weight: 700;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
@@ -1026,7 +837,7 @@ align-items: left;
   padding: 0;
   margin: 0;
   font-family: var(--heading-font);
-  font-size: 16px;
+  font-size: 1.6rem;
 }
 
 /*--------------------------------------------------------------
@@ -1037,18 +848,18 @@ align-items: left;
 }
 
 .details .features-item+.features-item {
-  margin-top: 100px;
+  margin-top: 1rem;
 }
 
 @media (max-width: 640px) {
   .details .features-item+.features-item {
-    margin-top: 40px;
+    margin-top: 2rem;
   }
 }
 
 .details .features-item h3 {
   font-weight: 700;
-  font-size: 26px;
+  font-size: 2.6rem;
 }
 
 .details .features-item ul {
@@ -1057,7 +868,7 @@ align-items: left;
 }
 
 .details .features-item ul li {
-  padding-bottom: 10px;
+  padding-bottom: 1rem;
   display: flex;
   align-items: center;
 }
@@ -1067,8 +878,8 @@ align-items: left;
 }
 
 .details .features-item ul i {
-  font-size: 20px;
-  padding-right: 4px;
+  font-size: 2rem;
+  padding-right: 2rem;
   color: var(--accent-color);
 }
 
@@ -1077,201 +888,89 @@ align-items: left;
 }
 
 /*--------------------------------------------------------------
-# Gallery Section
---------------------------------------------------------------*/
-.gallery .gallery-item {
-  overflow: hidden;
-  border-right: 3px solid var(--background-color);
-  border-bottom: 3px solid var(--background-color);
-}
-
-.gallery .gallery-item img {
-  transition: all ease-in-out 0.4s;
-}
-
-.gallery .gallery-item:hover img {
-  transform: scale(1.1);
-}
-
-
-
-
-
-
-
-
-/*--------------------------------------------------------------
-# Team Section
---------------------------------------------------------------*/
-.team .member {
-  position: relative;
-}
-
-.team .member .pic {
-  overflow: hidden;
-  margin-bottom: 50px;
-}
-
-.team .member .member-info {
-  background-color: var(--surface-color);
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
-  position: absolute;
-  bottom: -50px;
-  left: 20px;
-  right: 20px;
-  padding: 20px 15px;
-  overflow: hidden;
-  transition: 0.5s;
-}
-
-.team .member h4 {
-  font-weight: 700;
-  margin-bottom: 10px;
-  font-size: 16px;
-  position: relative;
-  padding-bottom: 10px;
-}
-
-.team .member h4::after {
-  content: "";
-  position: absolute;
-  display: block;
-  width: 50px;
-  height: 1px;
-  background: color-mix(in srgb, var(--default-color), transparent 60%);
-  bottom: 0;
-  left: 0;
-}
-
-.team .member span {
-  font-style: italic;
-  display: block;
-  font-size: 13px;
-}
-
-.team .member .social {
-  position: absolute;
-  right: 15px;
-  bottom: 15px;
-}
-
-.team .member .social a {
-  transition: color 0.3s;
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
-}
-
-.team .member .social a:hover {
-  color: var(--accent-color);
-}
-
-.team .member .social i {
-  font-size: 16px;
-  margin: 0 2px;
-}
-
-
-/*--------------------------------------------------------------
 # Faq Section
 --------------------------------------------------------------*/
-.faq .content h3 {
-  font-weight: 400;
-  font-size: 34px;
-  margin-bottom: 80px;
-  position: relative;
+.faq {
+  text-align: center;
+  padding: 60px 30px;
 }
 
-.faq .content p {
-  color: color-mix(in srgb, var(--default-color), transparent 30%);
+.faq .content h3 {
+  font-weight: bold;
+  font-size: 34px;
+  margin-bottom: 30px;
+  text-align: right;
 }
+
 
 .faq .faq-container {
-  margin-bottom: 300px;
-
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.faq .faq-container .faq-item {
+.faq .faq-item {
   background-color: var(--surface-color);
-  position: relative;
   padding: 20px;
-  margin-bottom: 20px;
+  border-radius: 10px;
   box-shadow: 0px 5px 25px 0px rgba(0, 0, 0, 0.1);
+  text-align: right;
+  position: relative;
   overflow: hidden;
-}
-
-.faq .faq-container .faq-item:last-child {
-  margin-bottom: 0;
-}
-
-.faq .faq-container .faq-item h3 {
-  font-weight: 600;
-  font-size: 17px;
-  line-height: 24px;
-  margin: 0 10px 0 32px;
-  transition: 0.3s;
   cursor: pointer;
+  transition: transform 0.3s ease-in-out;
 }
 
-.faq .faq-container .faq-item h3 span {
-  color: var(--accent-color);
-  padding-right: 5px;
+.faq .faq-item:hover {
+  transform: scale(1.02);
 }
 
-.faq .faq-container .faq-item h3:hover {
-  color: var(--accent-color);
+.faq .faq-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-.faq .faq-container .faq-item .faq-content {
-  display: grid;
-  grid-template-rows: 0fr;
-  transition: 0.3s ease-in-out;
-  visibility: hidden;
-  opacity: 0;
+.faq .faq-header h3 {
+  font-weight: bolder;
+  font-size: 18px;
+  margin: 0;
+  flex: 1;
+  text-align: right;
 }
 
-.faq .faq-container .faq-item .faq-content p {
-  margin-bottom: 0;
-  overflow: hidden;
-  margin-left: -10px;
+.section p {
+  font-size: 25px;
+  line-height: 2rem;
+  margin-right: 1px;
+  text-align: center;
 }
 
-.faq .faq-container .faq-item .faq-icon {
-  position: absolute;
-  top: 22px;
-  left: 20px;
+.faq .faq-header .faq-icon {
   font-size: 22px;
-  line-height: 0;
+  margin-left: 10px;
+  color: var(--accent-color);
+}
+
+.faq .faq-header .faq-toggle {
+  font-size: 18px;
   transition: 0.3s;
-  color: var(--accent-color);
 }
 
-.faq .faq-container .faq-item .faq-toggle {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 16px;
-  line-height: 0;
-  transition: 0.3s;
-  cursor: pointer;
-}
-
-.faq .faq-container .faq-item .faq-toggle:hover {
-  color: var(--accent-color);
-}
-
-.faq .faq-container .faq-active h3 {
-  color: var(--accent-color);
-}
-
-.faq .faq-container .faq-active .faq-content {
-  grid-template-rows: 1fr;
-  visibility: visible;
-  opacity: 1;
+.faq .faq-content {
+  display: none;
   padding-top: 10px;
+  text-align: right;
+  margin: 0 10px 15px;
+  color: color-mix(in srgb, var(--default-color));
 }
 
-.faq .faq-container .faq-active .faq-toggle {
-  transform: rotate(90deg);
+.faq .faq-item.faq-active .faq-content {
+  display: block;
+}
+
+.faq .faq-item.faq-active .faq-toggle {
+  transform: rotate(180deg); /* السهم للأسفل عند الفتح */
   color: var(--accent-color);
 }
 
@@ -1279,7 +978,7 @@ align-items: left;
 # Contact Section
 --------------------------------------------------------------*/
 .contact .info-item+.info-item {
-  margin-top: 40px;
+  margin-top: 50px;
 }
 
 .contact .info-item i {
@@ -1298,16 +997,16 @@ align-items: left;
 
 .contact .info-item h3 {
   padding: 0;
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 700;
+    margin: 0px 10px 0 20px
 }
 
 .contact .info-item p {
   padding: 0;
   margin-bottom: 0;
   font-size: 14px;
-  margin-right: 0;
+  margin: 0px 10px 0 20px
 }
 
 .contact .info-item:hover i {
@@ -1324,11 +1023,13 @@ align-items: left;
 .contact .php-email-form textarea {
   font-size: 14px;
   padding: 10px 15px;
-  box-shadow: none;
-  border-radius: 0;
-  color: var(--default-color);
-  background-color: color-mix(in srgb, var(--background-color), transparent 50%);
-  border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  box-shadow:none;
+  border-radius: 10px;
+  border: 0.3px solid var(--default-color);
+
+  color: var(--color-color);
+  background-color: color-mix(in srgb, var(--background-color));
+  border-color:  var(--accent-color);
 }
 
 .contact .php-email-form input[type=text]:focus,
@@ -1340,20 +1041,19 @@ align-items: left;
 .contact .php-email-form input[type=text]::placeholder,
 .contact .php-email-form input[type=email]::placeholder,
 .contact .php-email-form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 70%);
+  color: color-mix(in srgb, var(--default-color), transparent 0%);
 }
 
 .contact .php-email-form button[type=submit] {
   color: var(--contrast-color);
   background: var(--accent-color);
-  border: 0;
   padding: 10px 30px;
   transition: 0.4s;
-  border-radius: 50px;
+  border-radius: 20px;
 }
 
 .contact .php-email-form button[type=submit]:hover {
-  background: color-mix(in srgb, var(--accent-color), transparent 25%);
+  background: color-mix(in srgb, var(--accent-color), transparent 10%);
 }
 
 /*--------------------------------------------------------------

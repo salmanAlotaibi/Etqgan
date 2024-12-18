@@ -53,7 +53,7 @@ s
 # General Styling & Shared Classes
 --------------------------------------------------------------*/
 body { 
-  background-image: url('../BG.png'); /* رابط الصورة */
+  background-image: url('/assets/img/BG.png'); /* رابط الصورة */
   background-size: cover; /* تغطية كاملة */
   background-repeat: no-repeat; /* عدم التكرار */
   background-attachment: fixed; /* تثبيت الخلفية */
